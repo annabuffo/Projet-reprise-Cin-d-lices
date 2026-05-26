@@ -59,12 +59,13 @@ FONCTIONNALITEES DE BASES A PREVOIR
 - Modification d'une recette         ------- Seulement lorsqu'un utilisateur est authentifié.
 - Suppression d'une recette---------/
 
-BASE DE DONNEES DE DEPART
+BASE DE DONNEES DE DEPART (Entités - tables)
 
-- Users
-- Catégories 
-- Recettes
-- Média
+- User
+- Recipe
+- Category
+- Media
+- Comment
 
 RELATIONS SIMPLES : 
 
@@ -76,6 +77,12 @@ Une recette appartient à une catégorie.
 
 Un film / série peut être associé à plusieurs catégories.
 Une catégorie appartient à un film / série.
+
+Un utilisateur peut écrire plusieurs commentaires.
+Un commentaire appartient à un utilisateur.
+
+Une recette peut recevoir plusieurs commentaires.
+Une commentaires appartient à une recette.
 
 CAHIER DES CHARGES
 
@@ -137,11 +144,11 @@ OBJECTIF "moins de 3 clics"
 
 L’interface devra être simple et facile à utiliser afin que l’utilisateur puisse accéder rapidement aux recettes et aux films en quelques clics.
 
-USER STORIE (users non authentifiées)
+USER STORIES (users non authentifiées)
 
 |-------------------------------------------------------------------|
 | En tant que visiteur,                                             |
-| je veux pourvoir consulter des recettes associées à des films     |
+| je veux pouvoir consulter des recettes associées à des films      |
 | et séries                                                         |
 | afin de découvrir des recettes inspirées du cinéma.               |
 |-------------------------------------------------------------------|
@@ -149,22 +156,45 @@ USER STORIE (users non authentifiées)
 |-------------------------------------------------------------------|
 | En tant que visiteur,                                             |
 | je veux pouvoir m'inscrire                                        |
-| afin de créer mon espace personnel.                               |
+| afin de créer un espace personnnel.                               |
 |-------------------------------------------------------------------|
 
 |-------------------------------------------------------------------|
 | En tant que visiteur,                                             |
-| je veux pouvoir accéder à la page de politiques et                |  confidentialitées                                                   |
+| je veux pouvoir accéder à la page de politiques et                |  confidentialité                                                     |
 | afin de la consulter.                                             |
 |-------------------------------------------------------------------|
 
+|-------------------------------------------------------------------|
+| En tant que visiteur,                                             |
+| je veux pouvoir consulter la page de contact                      |
+| afin de la consulter.                                             |
+|-------------------------------------------------------------------|
 
-USER STORIE (users authentifiées)
+|-------------------------------------------------------------------|
+| En tant que visiteur,                                             |
+| je veux pouvoir accéder à la page de conditions d'utilisation     |
+| afin de la consulter.                                             |
+|-------------------------------------------------------------------|
+
+|-------------------------------------------------------------------|
+| En tant que visiteur,                                             |
+| je veux pouvoir consulter la page A propos                        |
+| afin de la consulter.                                             |
+|-------------------------------------------------------------------|
+
+USER STORIES (users authentifiées)
 
 |-------------------------------------------------------------------|
 | En tant qu'utilisateur,                                           |
 | je veux pouvoir m'authentifier                                    |
-| afin d'avoi accès à mon espace personnel.                         |
+| afin d'avoir accès à mon espace personnel.                        |
+|-------------------------------------------------------------------|
+
+|-------------------------------------------------------------------|
+| En tant qu'utilisateur authenfié,                                 |
+| je veux pouvoir commenter une recette                             |
+| afin de partager mon avis avec les autres utilisateurs.           |
 |-------------------------------------------------------------------|
 
 |-------------------------------------------------------------------|
@@ -175,49 +205,148 @@ USER STORIE (users authentifiées)
 
 |-------------------------------------------------------------------|
 | En tant qu’utilisateur,                                           |
-| je veux pouvoir m'authentifié,                                    |
-| afin de laisser des commentaires.                                 |
+| je veux pouvoir m'authentifier,                                   |
+| afin d’accéder aux fonctionnalités réservées aux utilisateurs     |
+| authentifiés.                                                     |
 |-------------------------------------------------------------------|
 
 |-------------------------------------------------------------------|
-| En tant qu’,                                           |
-| je veux consulter des recettes associées à des films et séries    |
-| afin de découvrir des recettes inspirées du cinéma.               |
-|-------------------------------------------------------------------|
-
-|-------------------------------------------------------------------|
-| En tant que visiteur,                                             |
-| je veux pouvoir m'inscrire                                        |
-| afin de créer mon espace personnel.                               |
+| En tant qu’utilisateur,                                           |
+| je veux pouvoir créer des recettes                                |
+| afin de publier des recettes.                                     |
 |-------------------------------------------------------------------|
 
 |-------------------------------------------------------------------|
 | En tant que visiteur,                                             |
-| je veux pouvoir m'inscrire                                        |
-| afin de créer mon espace personnel.                               |
+| je veux pouvoir accéder à la page de politiques et                |  confidentialité                                                     |
+| afin de la consulter.                                             |
 |-------------------------------------------------------------------|
 
 |-------------------------------------------------------------------|
 | En tant que visiteur,                                             |
-| je veux pouvoir m'inscrire                                        |
-| afin de créer mon espace personnel.                               |
+| je veux pouvoir consulter la page de contact                      |
+| afin de la consulter.                                             |
 |-------------------------------------------------------------------|
 
 |-------------------------------------------------------------------|
 | En tant que visiteur,                                             |
-| je veux pouvoir m'inscrire                                        |
-| afin de créer mon espace personnel.                               |
+| je veux pouvoir accéder à la page de conditions d'utilisation     |
+| afin de la consulter.                                             |
 |-------------------------------------------------------------------|
 
 |-------------------------------------------------------------------|
 | En tant que visiteur,                                             |
-| je veux pouvoir m'inscrire                                        |
-| afin de créer mon espace personnel.                               |
+| je veux pouvoir consulter la page A propos                        |
+| afin de la consulter.                                             |
 |-------------------------------------------------------------------|
 
-|-------------------------------------------------------------------|
-| En tant que visiteur,                                             |
-| je veux pouvoir m'inscrire                                        |
-| afin de créer mon espace personnel.                               |
-|-------------------------------------------------------------------|
+MCD entités (Modèles Conceptuel de Données)
+
+- USER
+- RECIPE
+- CATEGORY
+- MEDIA
+- COMMENT
+
+Première relation : USER -- RECIPE
+
+- USER (0,N) —— crée —— (1,1) RECIPE
+
+Un user peut créer 0 ou plusieurs recipes.
+Une recipe est créée par 1 seul user.
+
+Deuxième relation : CATEGORY -- RECIPE
+
+- CATEGORY (0,N) —— contenir —— (1,1) RECIPE
+
+Une category peut contenir 0 ou plusieurs recipe.
+Une recipe appartient à 1 category.
+
+Troisième relation : MEDIA -- RECIPE
+
+- MEDIA (0,N) —— inspire —— (1,1) RECIPE
+
+Un media est associé à 0 ou plusieurs recipes.
+Une recipe appartient à 1 media.
+
+Quatrième relation USER -- COMMENT
+
+- USER (0,N) —— écrit —— (1,1) COMMENT
+
+Un user peut écrire 0 ou plusieurs comments.
+Un comment appartient à 1 user.
+
+Cinquième relation RECIPE -- COMMENT
+
+- RECIPE (0,N) —— recevoir —— (1,1) COMMENT
+
+Une recipe peut recevoir 0 ou plusieurs comments.
+Un comment appartient à 1 recipe.
+
+MLD (Modèle Logique de Données) 
+
+"permet de transformer le MCD en tables, clé primaires et clé étrangères" 
+
+USER
+-
+id_user (PK)
+username
+email
+password
+age
+date_creation
+
+RECIPE
+-
+id_recipe (PK)
+titre
+description
+ingredients
+instructions
+image_url
+temps_preparation
+temps_cuisson
+date_creation
+
+id_user (FK)
+id_category (FK)
+id_media (FK)
+
+CATEGORY
+-
+id_category (PK)
+nom
+description
+id_media (FK)
+
+MEDIA
+-
+id_media (PK)
+title
+type
+description
+release_date  (date de sortie)
+
+COMMENT
+-
+id_comment (PK)
+contenu
+date_creation
+
+id_user (FK)
+id_recipe (FK)
+
+ - id_user dans RECIPE car une recette appartient à un utilisateur.
+ - id_category dans RECIPE car une recette appartient à une catégorie.
+ - id_media dans RECIPE car une recette appartient à un film/série.
+ - id_user dans COMMENT car un commentaire est écrit par un utilisateur.
+ - id_recipe dans COMMENT car un commentaire appartient à une recette.
+
+id_user dans RECIPE (1,1),
+id_category dans RECIPE (1,1),
+id_media dans RECIPE (1,1),
+id_user dans COMMENT (1,1),
+id_recipe dans COMMENT (1,1)
+
+MLD (Modèle Logique de Données) 
 
