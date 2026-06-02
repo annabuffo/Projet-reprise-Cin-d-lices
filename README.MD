@@ -350,3 +350,91 @@ id_recipe dans COMMENT (1,1)
 
 MLD (Modèle Logique de Données) 
 
+- USER -- RECIPE
+
+Etape 1 
+
+Repérer : qui est du côté MANY (N)
+RECIPE
+car 1 user peut créer  plusieurs recipes.
+
+Etape 2
+
+le côté MANY reçoit : la clé étrangère 
+RECIPE reçoit id_user
+
+Etape 3 
+
+USER 
+-
+id_user (PK)
+pseudo
+email
+mot_de_passe
+
+RECIPE
+-
+id_recipe (PK)
+titre
+description
+
+id_user (FK)
+
+pourquoi ? : parce que chaque recette appartient à 1 utilisateur 
+donc : RECIPE doit savoir quel user l'a créer
+
+Le MLD consiste surtout à :
+transformer les relations du MCD en clés étrangères
+
+Dans une relation 1,N :
+la FK va du côté N.
+
+USER
+-
+id_user (PK)
+username
+email
+password
+age
+date_creation
+
+CATEGORY
+-
+id_category (PK)
+nom
+description
+
+MEDIA
+-
+id_media (PK)
+title
+type
+description
+release_date
+
+COMMENT
+-
+id_comment (PK)
+contenu
+date_creation
+
+id_user (FK)
+id_recipe (FK)
+
+RECIPE 
+-
+id_recipe (PK)
+titre
+description
+ingredients
+instructions
+image_url
+temps_preparation
+temps_cuisson
+date_creation
+
+id_user (FK)
+id_category (FK)
+id_media (FK)
+
+
