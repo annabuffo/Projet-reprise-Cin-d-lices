@@ -9,10 +9,6 @@ export default (sequelize, DataTypes) => {
                 onDelete: 'CASCADE'
             });
         }
-
-        isAdmin() {
-            return this.role === 'admin';
-        }
     }
 
     const category = category.init({

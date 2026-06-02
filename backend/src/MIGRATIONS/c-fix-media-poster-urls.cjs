@@ -31,16 +31,16 @@ module.exports = {
             },
             {
                 title: 'The Simpson',
-                image_url: ''
+                image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wQJKIfIlcDiHLyUeLCS-02bzfvyI5HHWhA&s'
             },
             {
                 title: 'Doctor Who',
-                image_url: ''
+                image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2rhNsB-qZXXtd-Ok39ezkb8D7INi4eT1RQ&s'
             },
 
             {
                 title: 'Super Mario',
-                image_url: ''
+                image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDGSbVa_zl96qRtgI9KjIkEFJc9oQrnM_XNg&s'
             },
         ];
 
@@ -84,16 +84,16 @@ module.exports = {
             },
             {
                 title: 'The Simpson',
-                image_url: ''
+                image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wQJKIfIlcDiHLyUeLCS-02bzfvyI5HHWhA&s'
             },
             {
                 title: 'Doctor Who',
-                image_url: ''
+                image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2rhNsB-qZXXtd-Ok39ezkb8D7INi4eT1RQ&s'
             },
 
             {
                 title: 'Super Mario',
-                image_url: ''
+                image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDGSbVa_zl96qRtgI9KjIkEFJc9oQrnM_XNg&s'
             },
         ];
 
