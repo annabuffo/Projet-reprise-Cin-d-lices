@@ -1,0 +1,23 @@
+{
+  "name": "projet-reprise-cin-d-lices",
+  "version": "1.0.0",
+  "description": "REPRISE PROJET CinéDélices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annabuffo/Projet-reprise-Cin-d-lices.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annabuffo/Projet-reprise-Cin-d-lices/issues"
+  },
+  "homepage": "https://github.com/annabuffo/Projet-reprise-Cin-d-lices#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

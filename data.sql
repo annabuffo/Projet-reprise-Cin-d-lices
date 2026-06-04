@@ -1,4 +1,4 @@
-
+/*
 ----------------------------------
 --Table: users
 ----------------------------------
@@ -152,7 +152,7 @@ CREATE TABLE public.recipe_has_media (
     FOREIGN KEY (recipe_id),
         REFERENCES recipe (id) ON DELETE CASCADE 
 );
-
+*/
 
 ______________________________________________
 
@@ -166,7 +166,7 @@ CREATE TABLE users (
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE category (
+CREATE TABLE categories (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE,
     description TEXT

@@ -437,4 +437,4 @@ id_user (FK)
 id_category (FK)
 id_media (FK)
 
-
+MPD (Modèle Physique de Données)
