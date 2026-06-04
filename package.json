@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/annabuffo/Projet-reprise-Cin-d-lices#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "svelte": "^5.56.1"
   }
 }

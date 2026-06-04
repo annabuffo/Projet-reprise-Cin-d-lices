@@ -45,6 +45,18 @@ REPRISE PROJET CinéDélices
     - Question Jury 
     - Entraînement oral
 
+ARBORECENCE 
+
+Projet-reprise-Cin-d-lices
+├── backend
+├── frontend
+├── .gitignore
+├── README.md
+├── data.sql
+├── package.json
+└── package-lock.json
+
+
 FONCTIONNALITEES DE BASES A PREVOIR 
 
 - Page d'Accueil
